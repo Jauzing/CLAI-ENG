@@ -4,7 +4,6 @@ import sqlite3
 from termsDataBase import trafficInsuranceTerms, commonTerms, fireTerms, glassTerms, theftTerms, motorAndElectronicsTerms, drulleTerms
 from termsDataBase import liabilityTrollyHousecarTerms, travelBreakTerms, crisisHelpTerms, towingTerms, legalProtectionTerms, vehicleDamageTerms, rentalCarTerms, deductibleDiscountTerms, privateCareTerms, extraProtectionElectricAndHybridTerms, carInsuranceLargeTerms, propertyInCarTerms
 
-
 debug = False # Set to True to enable debugging
 megaDebug = False # Set to True to enable extended debugging
 
@@ -22,7 +21,7 @@ def findCorrectChapter(): # Function to find the correct chapter
         print("Ber användaren om frågan... \n ")
     else:
         pass
-    userQuestion = input("Vad är din fråga? \n ") # Ask the user for their question
+    userQuestion = input("\n Vad är din fråga? \n -> ") # Ask the user for their question
 
     messages = [ # Create a list of messages to send to the OpenAI API
         {"role": "system",
@@ -65,8 +64,6 @@ def findCorrectChapter(): # Function to find the correct chapter
     chosenChapter = response['choices'][0]['message']['content'] # Store the chapter in a variable
     storeTermsAsVariable() # Call the function to store the terms as a variable
     return chosenChapter.strip(), userQuestion  # Return the chapter and userQuestion stripped of whitespace
-
-
 def storeTermsAsVariable():
     if debug:
         print(" Laddar in alla kapitel i villkoret som variabler... \n")
@@ -109,7 +106,7 @@ def storeTermsAsVariable():
                 pass
         else: # If the chapter doesn't exist in the dictionary
             print(f"Kapitlet {chapter} finns inte") # Print that the chapter doesn't exist
-    print(f"Samtliga utvalda kapitel: {chosenChapter}  \n")
+    print(f"Samtliga utvalda kapitel:\n  {chosenChapter}  \n")
 
     if megaDebug: # If extended debugging is wanted
         print(f"Stored terms (first 50 characters): {selected_chapter_terms[:100]}...") # Print the first 50 characters of the terms
@@ -126,7 +123,7 @@ def findCorrectAnswer(): # Function to find the correct answer
     messages = [ # Create a list of messages to send to the OpenAI API
         {"role": "system",
          "content": f"Du är en hjälpsam assistent som svarar på frågor om försäkring för företag. Om du inte hittar exakt rätt svar i villkoret kan du använda generellt resonemang och din träningsdata för att svara. "
-                    " Du är en expert på försäkring, underwriting och skadereglering. Ditt svar ska vara kortfattat och lätt att förstå. "
+                    " Ditt svar ska vara tydligt och lätt att förstå. "
                     "Här är villkoren för kapitlet där svaret finns på användarens fråga:"
             f""""{selected_chapter_terms}"""},
         {"role": "user", # Create a user message with the user's question
@@ -146,10 +143,8 @@ def findCorrectAnswer(): # Function to find the correct answer
         print(f"Generated answer is: {insuranceAnswer}")
     else:
         pass
-    print(f"Det genererade svaret är: {insuranceAnswer}")
+    # print(f"Det genererade svaret är: {insuranceAnswer}")
     return insuranceAnswer.strip() # Return the answer stripped of whitespace
-
-
 # Function to check if the user wants to ask another question
 def goAgane():
     while True:
@@ -161,8 +156,6 @@ def goAgane():
             return False
         else:
             print("Vänligen följ instruktionerna! Svara med 'Ja' eller 'Nej'.")
-
-
 def create_table():
     conn = sqlite3.connect('insuranceQA.db')
     c = conn.cursor()
@@ -174,7 +167,6 @@ def create_table():
     ''')
     conn.commit()
     conn.close()
-
 # Function that takes the question + answer and saves it to excel file
 def saveQA(userQuestion, insuranceAnswer):
     # TODO: Behöver fråga användaren om svaret anses korrekt, innan det sparas till databasen
@@ -193,7 +185,6 @@ def saveQA(userQuestion, insuranceAnswer):
 
     print("Sparat!")
     return
-
 def checkDataBase():
     # Connect to the database
     conn = sqlite3.connect('insuranceQA.db')
