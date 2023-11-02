@@ -1,26 +1,54 @@
 import os
 import openai
 import sqlite3
-from termsDataBase import trafficInsuranceTerms, commonTerms, fireTerms, glassTerms, theftTerms, motorAndElectronicsTerms, drulleTerms
-from termsDataBase import liabilityTrollyHousecarTerms, travelBreakTerms, crisisHelpTerms, towingTerms, legalProtectionTerms, vehicleDamageTerms, rentalCarTerms, deductibleDiscountTerms, privateCareTerms, extraProtectionElectricAndHybridTerms, carInsuranceLargeTerms, propertyInCarTerms
+from termsDataBase import *
+from googletrans import Translator
+import time
 
-debug = False # Set to True to enable debugging
-megaDebug = False # Set to True to enable extended debugging
+debug = True  # Set to True to enable debugging
+megaDebug = False  # Set to True to enable extended debugging
 
-if debug:
-    print("Setting OpenAI API key...")
-else:
-    pass
+### VARIABLES ###
 
-openai.api_key = os.environ['OPENAI_API_KEY'] # Set the OpenAI API key as a environment variable in the OS
+temprating = 0.7  # Set the temperature rating for the OpenAI API
+model = "gpt-4"  # Set the model for the OpenAI API
 
-def findCorrectChapter(): # Function to find the correct chapter
-    global chosenChapter # Make the variable global so it can be used outside the function
-    global userQuestion
+
+
+def translate_text(text, target_lang='sv'):
+    try:
+        translator = Translator()
+        translated = translator.translate(text, dest=target_lang)
+        return translated.text
+    except Exception as e:
+        print(f"Translation failed: {e}")
+        return text
+
+# Function to print debug messages
+def debug_print(message):
     if debug:
-        print("Ber användaren om frågan... \n ")
+        print(message)
+
+
+# Function to print extended debug messages
+def mega_debug_print(message):
+    if megaDebug:
+        print(message)
     else:
         pass
+
+
+### API KEY SETUP ###
+debug_print("Setting OpenAI API key...")
+openai.api_key = os.environ['OPENAI_API_KEY']  # Set the OpenAI API key as a environment variable in the OS
+
+
+def findCorrectChapter(): # Function to find the correct chapter
+    global chosenChapter # Make the variable global so that it can be used outside the function
+    global userQuestion
+
+    debug_print("Setting OpenAI API key...")
+
     userQuestion = input("\n Vad är din fråga? \n -> ") # Ask the user for their question
 
     messages = [ # Create a list of messages to send to the OpenAI API
@@ -29,10 +57,10 @@ def findCorrectChapter(): # Function to find the correct chapter
                     " Här är kapitel från företagets villkor för företagsfordon:"
             """" Trafikförsäkring 
                 Gemensamma bestämmelser
-                Brand
+                Fire Damage Insurance for Vehicles
                 Glasrutor
-                Stöld och inbrott
-                Motor och elektronik för personbil, lätt lastbil och husbil
+                Stöld och inbrott 
+                Motor och elektronik för personbil, lätt lastbil och husbil 
                 Motor och elektronik för husvagn
                 Drulle
                 Ansvar för husbil och husvagn
@@ -50,13 +78,13 @@ def findCorrectChapter(): # Function to find the correct chapter
                 """},
 
         {"role": "user", # Create a user message with the user's question
-         "content": f"Baserat på användarens fråga, hitta rätt kapitel i villkoren där svaret finns."
+         "content": f"Baserat på användarens fråga, hitta rätt kapitel i villkoren där svaret finns. Användaren kan ibland stava fel, använda slang eller skriva på ett annat sätt än exakt vad som står i villkoret. Fundera på om det finns några synonymer eller andra sätt att uttrycka sig på som användaren kan ha använt."
          f"Svara endast med namnet på kapitlet. Om det kan finnas flera kapitel som innehåller svaret, svara med samtliga. Användarens fråga: {userQuestion}."},
     ]
-    if debug:
-        print(" Anropar OpenAI API för att hitta rätt kapitel... \n")
-    else:
-        pass
+
+    debug_print("Anropar OpenAI API för att hitta rätt kapitel... \n") # Debugging: Indicate that the OpenAI API is about to be called
+
+
     response = openai.ChatCompletion.create(
         model="gpt-4",
         messages=messages
@@ -64,21 +92,20 @@ def findCorrectChapter(): # Function to find the correct chapter
     chosenChapter = response['choices'][0]['message']['content'] # Store the chapter in a variable
     storeTermsAsVariable() # Call the function to store the terms as a variable
     return chosenChapter.strip(), userQuestion  # Return the chapter and userQuestion stripped of whitespace
+
 def storeTermsAsVariable():
-    if debug:
-        print(" Laddar in alla kapitel i villkoret som variabler... \n")
-    else:
-        pass
+
+    debug_print("Laddar in alla kapitel i villkoret som variabler... \n")
 
     chapter_terms = { # Create a dictionary with the chapters and their variable names that store the terms
-        "Trafikförsäkring": trafficInsuranceTerms,
-        "Gemensamma bestämmelser": commonTerms,
-        "Brand": fireTerms,
-        "Glasrutor": glassTerms,
-        "Stöld och inbrott": theftTerms,
-        "Motor och elektronik för personbil, lätt lastbil och husbil": motorAndElectronicsTerms,
-        "Motor och elektronik för husvagn": motorAndElectronicsTerms,
-        "Drulle": drulleTerms,
+        "Traffic Insurance Conditions and Deductible Provisions": trafficInsuranceTerms,
+        "General Provisions for Vehicle Insurance Coverage": commonTerms,
+        "Fire Damage Insurance for Vehicles": fireTerms,
+        "Glass Breakage Coverage for Vehicle Windows": glassTerms,
+        "Theft and Burglary Protection for Vehicles": theftTerms,
+        "Motor and Electronics Insurance for Personal Vehicles, Light Trucks, and Motorhomes": motorAndElectronicsTerms,
+        "Coverage for Internal Equipment and Systems in Privately and Commercially Owned Caravans": motorAndElectronicsTerms,
+        "All-Risk 'Clumsy' Coverage for Personal and Light Commercial Vehicles": drulleTerms,
         "Ansvar för husbil och husvagn": liabilityTrollyHousecarTerms,
         "Reseavbrott för husbil och husvagn": travelBreakTerms,
         "Krishjälp": crisisHelpTerms,
@@ -94,68 +121,78 @@ def storeTermsAsVariable():
     }
 
     # Check if the chosen chapter exists in the dictionary
-    global selected_chapter_terms # Make the variable global so it can be used outside the function
+    global selected_chapter_terms # Make the variable global so that it can be used outside the function
     selected_chapter_terms = [] # Create an empty list to store the terms to enable multiple chapter answers
 
     for chapter in chosenChapter.split('\n'): # Split the chosen chapter into a list of chapters
         if chapter in chapter_terms: # Check if the chapter exists in the dictionary
             selected_chapter_terms.append(chapter_terms[chapter]) # If it does, append the terms to the list
-            if megaDebug:
-                print(f"Valda kapitel {chosenChapter}")
-            else:
-                pass
+            mega_debug_print(f"Valda kapitel {chapter}") # Debugging: Print the chosen chapter
         else: # If the chapter doesn't exist in the dictionary
             print(f"Kapitlet {chapter} finns inte") # Print that the chapter doesn't exist
-    print(f"Samtliga utvalda kapitel:\n  {chosenChapter}  \n")
 
-    if megaDebug: # If extended debugging is wanted
-        print(f"Stored terms (first 50 characters): {selected_chapter_terms[:100]}...") # Print the first 50 characters of the terms
-    else:
-        pass # If extended debugging is not wanted, do nothing
-
+    mega_debug_print(f"Inladdat villkor (första 50 bokstäverna): {selected_chapter_terms[:100]}...") # Debugging: Print the first 50 characters of the terms
     return selected_chapter_terms # Return the list of terms
-def findCorrectAnswer(): # Function to find the correct answer
+
+
+def findCorrectAnswer():  # Function to find the correct answer
     global insuranceAnswer
-    if debug:
-        print(" Hittar rätt svar...")
-    else:
-        pass
-    messages = [ # Create a list of messages to send to the OpenAI API
-        {"role": "system",
-         "content": f"Du är en hjälpsam assistent som svarar på frågor om försäkring för företag. Om du inte hittar exakt rätt svar i villkoret kan du använda generellt resonemang och din träningsdata för att svara. "
-                    " Ditt svar ska vara tydligt och lätt att förstå. "
-                    "Här är villkoren för kapitlet där svaret finns på användarens fråga:"
-            f""""{selected_chapter_terms}"""},
-        {"role": "user", # Create a user message with the user's question
-         "content": f"Användarens fråga som du ska besvara: {userQuestion}. Citera först den delen i villkoret där du hittat svaret. Två rader under det skriver du svaret på frågan. Exempel: Fråga: Vart blir jag bärgad om jag krockar? Du svarar följande: \n  Villkorstext: Vid bärgning bärgas bilen till närmaste verkstad. Om kundens bostad är närmare än verkstaden kan kunden välja att bli bärgad dit. \n Svar:Bilen bärgas till närmaste verkstad."},
+    debug_print(" \n Finding correct answer... \n ")  # Debugging: Indicate that the model will analyze and look for correct answer.
+    messages = [  # Create a list of messages to send to the OpenAI API
+        {"role": "system",  # Create
+         # a system message with instructions how the model should reply.
+         "content": f"""You are a helpful assistant that answers questions about business insurance.
+          If you don't find the exact right answer in the text, answer 'I dont know' """
+                    "Here are the terms of the chapter/s where the answer to the user's question is likely found:"
+                    f""""{selected_chapter_terms}"""},
+
+        {"role": "user",  # Create a user message with the user's question
+         "content": f"""The user's question: {userQuestion}.
+          First, quote the part of the condition where you found the answer. Two lines below that, you write a friendly but concise answer to the question in Swedish. Use an 🧾 emoji before quoting the terms. Use a 📌 emoji before the answer.
+          Example: 🧾 Villkor: Extra skydd för elbil och laddhybrid Förlängt skydd för motor och elektronik Försäkringen gäller om bilen • är högst 12 år räknat från första registreringsdatumet. \n \n 📌 Svar: 12 år från första reg.datum.
+         """},
     ]
 
-    response = openai.ChatCompletion.create( # Call the OpenAI API
-        model="gpt-4",
-        messages=messages
+    response = openai.ChatCompletion.create(  # Call the OpenAI API
+        model=model,
+        messages=messages,
+        temperature=temprating,
+        top_p=1,
+        frequency_penalty=0,
+        presence_penalty=0
+
     )
-    if megaDebug:
-        print(" Hittat svar!")  # Debugging: Indicate that the OpenAI API is about to be called
-    else:
-        pass
-    insuranceAnswer = response['choices'][0]['message']['content'] # Store the answer in a variable
-    if debug:
-        print(f"Generated answer is: {insuranceAnswer}")
-    else:
-        pass
+
+    mega_debug_print("\n Hittat svar!")  # Debugging: Indicate that the answer has been found
+    insuranceAnswer = response['choices'][0]['message']['content']  # Store the answer in a variable
+
+    insuranceAnswer = insuranceAnswer.replace(". ",
+                                              ".\n")  # Replace each period and space with a period and a newline character
+
     # print(f"Det genererade svaret är: {insuranceAnswer}")
-    return insuranceAnswer.strip() # Return the answer stripped of whitespace
+
+    mega_debug_print(f" \n Det genererade svaret är: {insuranceAnswer} \n ")  # Debugging: Print the generated answer
+    time.sleep(5)
+
+    # Translate
+    insuranceAnswer = translate_text(insuranceAnswer, target_lang='sv')
+
+    return insuranceAnswer
+
+
 # Function to check if the user wants to ask another question
 def goAgane():
     while True:
-        asking = input("Vill du ställa en till fråga? (Ja/Nej) \n")
-        if asking.lower() == "ja":
+        asking = input("Finns det något mer jag kan stå till tjänst med? (Ja/Nej) \n")
+        if "ja" in asking.lower() :
             return True
-        elif asking.lower() == "nej":
-            print("Tack för att du använde vår tjänst!")
+        elif "nej" in asking.lower() :
+            print("Tack för att du använde min robot! 🤟")
             return False
         else:
             print("Vänligen följ instruktionerna! Svara med 'Ja' eller 'Nej'.")
+
+
 def create_table():
     conn = sqlite3.connect('insuranceQA.db')
     c = conn.cursor()
@@ -167,10 +204,12 @@ def create_table():
     ''')
     conn.commit()
     conn.close()
+
+
 # Function that takes the question + answer and saves it to excel file
 def saveQA(userQuestion, insuranceAnswer):
     # TODO: Behöver fråga användaren om svaret anses korrekt, innan det sparas till databasen
-    print("Sparar fråga och svar till databasen...")
+    print("\n Sparar fråga och svar till databasen... \n ")
 
     # Connect to database
     conn = sqlite3.connect('insuranceQA.db')
@@ -185,6 +224,8 @@ def saveQA(userQuestion, insuranceAnswer):
 
     print("Sparat!")
     return
+
+
 def checkDataBase():
     # Connect to the database
     conn = sqlite3.connect('insuranceQA.db')

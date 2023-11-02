@@ -4,15 +4,19 @@ asking = True
 
 if __name__ == '__main__':
     create_table()  # Create table if it doesn't exist
-    viewDatabaseQ = input("Vill du se databasen? (Ja/Nej) \n")
-    if viewDatabaseQ.lower() == "ja":
-        checkDataBase()
-    else:
-        pass
+    if megaDebug:
+        viewDatabaseQ = input("Vill du se databasen? (Ja/Nej) \n")
+        if viewDatabaseQ.lower() == "ja":
+            checkDataBase()
+        else:
+            pass
     while True:  # Loop to allow multiple questions
         chosenChapter, userQuestion = findCorrectChapter()
-        print(f"Valt kapitel: {chosenChapter}")
         insuranceAnswer = findCorrectAnswer()
+
+        # Translate the answer to Swedish
+        insuranceAnswer = translate_text(insuranceAnswer, target_lang='sv')
+
         print(insuranceAnswer)
         saveQA(userQuestion, insuranceAnswer)
         ask_again = goAgane()

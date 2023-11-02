@@ -4,26 +4,47 @@
 
 
 chapterList = """"
-1. Trafikförsäkring
-2. Gemensamma bestämmelser
-3. Brand
-4. Glasrutor
-5. Stöld och inbrott
-6. Motor och elektronik för personbil, lätt lastbil och husbil
-7. Motor och elektronik för husvagn
-8. Drulle
-9. Ansvar för husbil och husvagn
-10. Reseavbrott för husbil och husvagn
-11. Krishjälp
-12. Bärgning
-13. Rättsskydd för fordonet
-14. Vagnskada
-15. Hyrbil 
-16. Självriskrabatt 3 000 kr 
-17. Privat vård och ersättning för medicinsk invaliditet efter trafikolycka 
-18. Extra skydd för elbil och laddhybrid 
-19. Bilförsäkring stor 
-20. Egendom i bil
+    Traffic Insurance Conditions and Deductible Provisions
+    General Provisions for Vehicle Insurance Coverage
+    Fire Damage Insurance for Vehicles
+    Glass Breakage Coverage for Vehicle Windows
+    Theft and Burglary Protection for Vehicles
+    Motor and Electronics Insurance for Personal Vehicles, Light Trucks, and Motorhomes
+    Coverage for Internal Equipment and Systems in Privately and Commercially Owned Caravans
+    All-Risk 'Clumsy' Coverage for Personal and Light Commercial Vehicles
+    Liability for mobile home and caravan
+    Interrupted Journey Coverage for Motorhomes and Caravans
+    Crisis Assistance Coverage Provisions
+    Towing and Transportation Coverage Details
+    Legal Protection Coverage for Motor Vehicles
+    Vehicle Damage Coverage and Exclusions, Collisions
+    Rental Car Coverage and Compensation Guidelines
+    Deductible Provisions for Collisions, Vandalism, Parking, and Towing. Deductible reduction 3000 SEK"
+    Private care and compensation for medical disability after a traffic accident
+    Enhanced Protection for Electric and Plug-in Hybrid Vehicles
+    Comprehensive Vehicle Insurance 'Big': Coverage, Exclusions, and Additional Benefits
+    Property in Vehicle: Coverage, Exclusions, and Deductibles
+    Vehicle Downtime Coverage: What's Included and Exclusions
+    Veteran Car
+    Special Theft Protection: Alarm System Requirements
+    Special Theft Protection: Compliance with Tracking Equipment Requirements
+    Special Theft Protection: Tracking Device Requirements and Consequences for Non-Compliance
+    Vehicle Insurance Compensation Guidelines and Exclusions
+    Depreciation Rates for Specific Vehicle Equipment and Accessories
+    Tire Depreciation Rules and Tread Depth Criteria
+    Factors Influencing Your Vehicle Insurance Premium
+    Insurance Terms - Agreement, and Cancellation
+    Payment Terms and Consequences for Delayed Insurance Premiums
+    Veteran Car
+    Special Theft Protection: Alarm System Requirements
+    Special Theft Protection: Compliance with Tracking Equipment Requirements
+    Special Theft Protection: Tracking Device Requirements and Consequences for Non-Compliance
+    Vehicle Insurance Compensation Guidelines and Exclusions
+    Depreciation Rates for Specific Vehicle Equipment and Accessories
+    Tire Depreciation Rules and Tread Depth Criteria
+    Factors Influencing Your Vehicle Insurance Premium
+    Insurance Terms - Agreement, and Cancellation
+    Payment Terms and Consequences for Delayed Insurance Premiums
 """
 
 
@@ -105,12 +126,13 @@ trafikförsäkring
 Vid skada till följd av trafik med det
 försäkrade fordonet
 ersätts:
-Det här Men inte det här
+Det här
 Personskada
 Person i
 fordonet.
 Person utanför
 fordonet.
+Men inte det här::
 Fordonsskada
 Skada på annans fordon i trafik
 om det kan bevisas
@@ -157,8 +179,7 @@ villkor
 
 Ersättningens
 storlek
-Full ersättning Nedsatt
-ersättning
+Full ersättning:
 Personskador Personskador
 Med de
 undantag som anges i högra
@@ -167,6 +188,8 @@ får den drabbade full ersättning, även om
 han
 eller hon själv har skuld
 i det som hänt.
+Nedsatt
+ersättning:
 I följande fall kan ersättningen
 sättas ned (jämkas).
 Om den som
@@ -390,8 +413,7 @@ Självrisk
 Trafikförsäkringen gäller med självrisk.
 Självrisken
 framgår av ditt försäkringsbrev.
-Ingen självrisk Särskild
-självrisk.
+Ingen självrisk 
 Självrisk
 tas inte ut om
 • enbart ren eller hund skadats
@@ -408,6 +430,8 @@ själv
 eller föraren
 av ditt fordon ensam
 är vållande.
+Särskild
+självrisk:
 I följande fall tillkommer
 extra
 trafiksjälvrisk:
@@ -503,7 +527,7 @@ Nedanstående bestämmelser avser brand, glasrutor, stöld och inbrott, krishjä
 och elektronik, drulle, bärgning, rättsskydd, reseavbrott, ansvar och vagnskada samt tilläggsförsäkringarna hyrbil, självriskrabatt 3 000 kr, privat vård och ersättning för medicinsk
 invaliditet efter trafikolycka, bilförsäkrings stor och egendom i bil.
 Försäkrad egendom för personbil, lätt lastbil och lätt släpvagn
-Det här Men inte det här
+Det här:
 • Fordonet.
 • Normal utrustning som hör till och finns i eller
 på fordonet.
@@ -516,6 +540,7 @@ För företagsägd personbil och lätt lastbil omfattas
 utrustning i eller på fordonet om det hör till fordonet och kan anses vara normal för ett fordon
 av samma slag, fabrikat och användningssätt som
 det försäkrade.
+Men inte det här:
 • Utrustning som inte hör till fordonet eller
 kan anses normalt för det.
 Ljud- och bildutrustning som inte är fast
@@ -536,7 +561,7 @@ Högsta ersättning
 • Fast monterad inreding/utrustning i företagsägd personbil och lätt lastbil såsom hyllor,
 skåp, hurtsar och bänkar högst 1 prisbasbelopp.
 Försäkrad egendom för husvagn och husbil
-Det här Men inte det här
+Det här:
 • Fordonet.
 • Normal utrustning som hör till och finns i eller
 på fordonet.
@@ -550,6 +575,7 @@ fordonet eller i förtältet och tillhör dig, din
 make eller maka, sambo eller dina barn.
 Vid förlust eller skada utanför hemorten gäller
 försäkringen även för stöldbegärlig egendom.
+Men inte det här:
 • Kontanter och Värdehandlingar
 • Motordrivet fordon, motorbåt eller segelbåt
 (även windsurfingbräda) och delar av eller
@@ -632,7 +658,7 @@ hos Trygg-Hansa, skadas vid samma tillfälle betalar du två självrisker, de h�
 Trafikförsäkringssjälvrisk måste alltid betalas utöver annan självrisk"""
 fireTerms = """ B.3 Brand
 Vad får du ersättning för
-Det här Men inte det här
+Det här:
 Skada på grund av
 • brand, det vill säga eld som kommit lös
 • blixtnedslag
@@ -640,6 +666,7 @@ Skada på grund av
 • brand som anlagts av annan person. Med annan
 person menas annan än dig själv som handlat utan
 ditt samtycke.
+Men inte det här:
 Skada på grund av
 • frysning, väta eller korrosion
 • vagnskada före eller efter och i omedelbar anslutning till brandskadan. Vagnskadan kan ersättas
@@ -667,11 +694,12 @@ Självrisk
 Självrisken framgår av ditt försäkringsbrev."""
 glassTerms = """B.4 Glasrutor
 Vad du får ersättning för
-Det här Men inte det här
+Det här
 Genombruten, spräckt eller krossad
 • vindruta
 • sidoruta
 • bakruta.
+Men inte det här:
 Skada på sollucka, lyktglas eller glastak.
 Skada som inträffat när fordonet kolliderat, vält,
 kört av vägen eller vid uppsåtlig skadegörelse.
@@ -681,7 +709,7 @@ theftTerms = """ B.5 Stöld och inbrott
 Ägaren ska styrka innehavet av stulen egendom, lämpligen med ursprungskvitto eller
 originalgarantibevis.
 Vad du får ersättning för
-Det här Men inte det här
+Det här
 Skada på grund av
 • stöld
 • tillgrepp av fordon
@@ -691,6 +719,7 @@ Skada på grund av
 av händelserna ovan.
 Vid förlust av fordon tillämpas en handläggningstid på 30 dagar från det att du gjort polisanmälan och anmält skadan till oss, om fordonet inte
 kommit tillrätta innan dess.
+Men inte det här:
 Skada på grund av
 • Stöld, tillgrepp, rån eller försök till sådant
 brott, som utförts av någon som tillhör ditt
@@ -782,12 +811,13 @@ Vad försäkringen inte gäller för
 Försäkringen gäller inte för skada som ska ersättas enligt lag, garanti (till exempel
 MRF-Garanti), eller annat åtagande.
 Vad du får ersättning för
-Det här Men inte det här
+Det här
 Inifrån kommande skada eller fel som påverkar
 bilens funktion.
 Kostnader utöver självrisken för undersökning och
 demontering, som vi i förväg godkänt, i syfte att
 fastställa om skadan ersätts av försäkringen.
+Men inte det här:
 Skada som orsakats av
 • frysning, väta eller korrosion
 • förorenat bränsle
@@ -800,7 +830,7 @@ Hopsättning och återmontering efter undersökning
 och demontering, där skadan inte ersätts av försäkringen.
 Fabrikations-, material, konstruktionsfel eller
 definierade och fastställda seriefel.
-Det här Men inte det här
+Det här:
 Inifrån kommande skada eller fel som påverkar
 bilens funktion och som berör någon av följande
 komponenter:
@@ -827,6 +857,7 @@ Växellåda och kraftöverföring
 • kraftöverföring, växellåda, styrelektronik och
 reglage
 Skada på:
+Men inte det här:
 Motor och kylsystem
 • bränsleledningar, filter, bränsletank
 • ljuddämpare och avgasrör
@@ -836,7 +867,7 @@ Växellåda och kraftöverföring
 • hjullager
 • lamellbelägg och följdskador av detta
 • växellåde- och kopplingsvajer
-Det här Men inte det här
+Det här:
 Inifrån kommande skada eller fel som påverkar
 bilens funktion och som berör någon av följande
 komponenter:
@@ -867,12 +898,13 @@ Broms, styrning
 • servosystem för styrinrättning
 • styr- och reglersystem för låsningsfria bromsar
 • styrväxel
+Men inte det här:
 Skada på:
 Broms, styrning
 • hjulcylindrar, bromsok, bromsskivor/trummor och
 bromsbelägg
 • stag och kulleder
-Det här Men inte det här
+Det här
 Inifrån kommande skada eller fel som påverkar
 bilens funktion och som berör någon av följande
 komponenter:
@@ -898,6 +930,7 @@ Hybriddrift
 • laddningsenhet för högvoltsbatteri (fabriksmonterad on-board charger)
 • solcellsystem (fabriksmonterat)
 • styrdon för eldrift
+Men inte det här:
 Skada på:
 Säkerhets och förarstödsystem
 • ljuskälla och lyktglas
@@ -906,7 +939,7 @@ Säkerhets och förarstödsystem
 Hybriddrift
 • laddkabel med eller utan extern laddenhet
 • lågvoltsbatteri
-Det här Men inte det här
+Det här:
 Inifrån kommande skada eller fel som påverkar
 bilens funktion och som berör någon av följande
 komponenter:
@@ -919,6 +952,7 @@ Eldrift
 • laddningsenhet för högvoltsbatteri (fabriksmonterad on-board charger)
 • solcellsystem (fabriksmonterat)
 • styrdon för eldrift
+Men inte det här:
 Skada på:
 Eldrift
 • laddkabel med eller utan extern laddenhet
@@ -963,7 +997,7 @@ Försäkringen gäller inte
 • för skada som ska ersättas enligt lag, garanti eller annat åtagande
 • för husvagn i yrkesmässig uthyrning.
 Vad du får ersättning för
-Det här Men inte det här
+Det här:
 Inifrån kommande skada eller fel på
 • elektroblock
 • hydrauliska stödben inklusive motorer
@@ -987,6 +1021,42 @@ försäkringen.
 definierade och fastställda seriefel.
 Självrisk
 1 500 kronor """
+motorAndElectronicsForCaravanTerms = """Vad försäkringen gäller för
+Privat- och företagsägd husvagn. Husvagnen får ha varit registrerad i högst 8 år från första
+registreringsdatumet. Ägaren ska styrka husvagnens ålder. Kan det inte visas vilken dag
+skadan uppstod, anses händelsen ha inträffat den dag anmälan kommit till oss.
+Vad försäkringen inte gäller för
+Försäkringen gäller inte
+• för skada som ska ersättas enligt lag, garanti eller annat åtagande
+• för husvagn i yrkesmässig uthyrning.
+30 | B – Allmänna villkor
+P00297_2310
+Vad du får ersättning för
+Det här:
+Inifrån kommande skada eller fel på
+• elektroblock
+• hydrauliska stödben inklusive motorer
+• värmepanna
+• varmvattenberedare
+• larm och gasvarnare
+• vitvaror
+• klimatanläggning för husvagnens bodel
+(fabriksmonterad).
+Men inte det här:
+Skada som orsakats av
+• Frysning, väta eller korrosion
+• Servicedetaljer och komponenter som behöver
+bytas vid reparation och som inte tillhör den
+aktuella skadan ersätts inte.
+• Vagn-, brand-, glasrute, drulle- eller stöldskada som
+kan ersättas genom respektive försäkringsmoment.
+• Hopsättning och återmontering efter undersökning
+och demontering, där skadan inte ersätts av
+försäkringen.
+• Fabrikations-, material, konstruktionsfel eller
+definierade och fastställda seriefel.
+Självrisk
+1 500 kronor"""
 drulleTerms = """B.8 Drulle
 Vad gäller försäkringen för
 Privatägd och företagsägd personbil och lätt lastbil. För lätt lastbil begränsas försäkringen att
@@ -995,7 +1065,7 @@ Husbil och husvagn som har varit registrerad i högst 8 år från första regist
 Högsta ersättningsbelopp
 Ersättningsbeloppet för skada är begränsat till högst 50 000 kronor.
 Vad du får ersättning för
-Det här Men inte det här
+Det här:
 • Skada på inredning i kupé eller bagageutrymme
 som orsakas av dig, förare eller passagerare genom
 plötslig och oförutsedd händelse.
@@ -1010,6 +1080,7 @@ utanför fordonet eller uppsåtlig skadegörelse när
 bilen har en gällande vagnskadegaranti som inte
 ersätter dessa.
 *Med bränsle menar vi bensin, diesel och etanol.
+Men inte det här:
 • Skada som orsakas av djur.
 • Skada som omfattas av våra försäkringsvillkor för
 brand, glasrutor, stöld och inbrott, motor och
@@ -1033,11 +1104,12 @@ Självrisk
 Självrisken framgår av ditt försäkringsbrev """
 liabilityTrollyHousecarTerms = """ B.9 Ansvar för husbil och husvagn
 Vad du får ersättning för
-Det här Men inte det här
+Det här:
 • Ansvarsskada, det vill säga skadeståndskrav som
 du kan utsättas för som ägare till husvagnen eller
 husbilen och som du enligt svensk lag är skyldig att
 betala.
+Men inte det här:
 • Skada på egendom eller på husvagnen/husbilen.
 • Skada som kan ersättas från dragbilens
 trafikförsäkring.
@@ -1047,7 +1119,7 @@ Ansvarsskada vid
 • sakskada 1 000 000 kronor"""
 travelBreakTerms = """ B.10 Reseavbrott för husbil och husvagn
 Vad du får ersättning för
-Det här Men inte det här
+Det här:
 • Reseavbrott om du har både dragbil och husvagn
 försäkrade hos oss och husvagnen/dragbilen eller
 husbilen inte kunnat användas för sitt ändamål. Du
@@ -1058,6 +1130,7 @@ påbörjad, skadan medfört avbrott i resan och skadan
 ska vara ersättningsbar från husbilens/husvagnens
 brand-, motor och elektronik-, glasrute-, drulle-,
 stöld- eller vagnskadeförsäkring.
+Men inte det här:
 • Ersättning lämnas inte för dag som förlorats på
 grund av dröjsmål eller annan försummelse av dig.
 Högsta ersättning för reseavbrott
@@ -1072,13 +1145,14 @@ Vem försäkringen gäller för
 • passagerare
 • maka/make till förare eller passagerare.
 Vad du får ersättning för
-Det här Men inte det här
+Det här:
 • Skäliga kostnader för behandling som du behöver
 för psykisk ohälsa till följd av att du drabbats av en
 skada som ersätts av fordonets försäkring.
 • Juridisk rådgivning per telefon efter inträffat rån
 eller överfall. Ersättning lämnas för 1 timmes rådgivning av oss anvisad jurist och är avsedd att klargöra de praktiska frågor som kan finnas avseende
 polisanmälan, rätt till skadestånd och rättegångsförfarande.
+Men inte det här:
 Psykisk ohälsa som är en följd av skada som:
 • uppstått i samband med att den försäkrade utfört
 eller medverkat till uppsåtlig gärning som enligt
@@ -1099,7 +1173,7 @@ Vad försäkringen inte gäller för
 för fordonets framdrift är urladdat.
 Vad du får ersättning för
 Fordonstransport
-Det här Men inte det här
+Det här:
 Transport till närmaste verkstad som kan reparera
 fordonet när det
 • stulits och kommit tillrätta
@@ -1117,6 +1191,7 @@ föraren:
 • plötsligt blivit sjuk
 • avlidit
 och ingen annan som deltar i resan kan köra hem det.
+Men inte det här:
 Hämtning och transport av fordonet
 • som inte i förväg godkänts av oss
 • om kostnaden för hämtningen eller transporten
@@ -1136,7 +1211,7 @@ Hämtning och transport av fordonet utanför
 Sverige om ditt fordon vid driftstoppet hade inträtt
 eller meddelat körförbud.
 Persontransport
-Det här Men inte det här
+Det här:
 Transport av förare och passagerare till hemort i
 Norden, med billigaste transportmedel, när
 • fordonet skadats eller stulits.
@@ -1147,6 +1222,7 @@ eller avlidit.
 Hemresa till hemort inom Norden ersätts med
 kostnaden för resa med billigaste transportmedel.
 Du kan istället för hemresa få resa till bestämmelseorten betald om det blir billigare.
+Men inte det här:
 Transport till hemort när
 • fordonet kan repareras inom skälig tid med
 hänsyn till den fortsatta resan
@@ -1306,11 +1382,12 @@ Om du delges misstanke för flera brott och åtal för dessa brott väcks samtid
 försäkringen med ett försäkringsbelopp. """
 vehicleDamageTerms = """B.14 Vagnskada
 Vad du får ersättning för
-Det här Men inte det här
+Det här:
 Skada på grund av
 • trafikolycka
 • annan olyckshändelse utanför fordonet
 • uppsåtlig skadegörelse av tredje man.
+Men inte det här:
 Skada orsakad av djur eller insekter inne i fordonet,
 till exempel skada på inredning eller kablage.
 Skada på fordonsdel som orsakats av
@@ -1353,12 +1430,13 @@ Vid samtidig trafikskada behöver du bara betala en extra självrisk för höjdl
 Vattenskada för husbil och husvagn
 Vattenskada ersätts från husbilen eller husvagnens Vagnskada.
 Vad du får ersättning för
-Det här Men inte det här
+Det här:
 Vattenskada på försäkrad egendom som omfattas
 av husbilen/husvagnens försäkring om fordonet är
 vagnskadeförsäkrat, och skadan orsakats av vatten
 som oberäknat strömmat ut från fordonets tank
 eller ledningssystem.
+Men inte det här:
 Skada på tank och rörledningar.
 Högsta ersättning
 Vattenskada på försäkrad egendom ersätt med högst 50 000kr.
@@ -1386,7 +1464,7 @@ inte kan använda bilen, har du rätt till ersättning i upp till sju dagar, max
 försäkringsår. Driftstoppet får inte bero på drivmedelsbrist eller att batteriet för fordonets
 framdrift är urladdat.
 Vad du får ersättning för
-Det här Men inte det här
+Det här:
 Hyrbil
 • 75 % av dygns- och kilometerkostnaden för hyrbil,
 storleksmässigt likvärdig med din egen bil.
@@ -1401,6 +1479,7 @@ samt företagsägd personbil
 • 200 kr/dag för företagsägd lätt lastbil.
 Ersättningen lämnas under skälig reparationstid.
 Du kan växla mellan hyrbil och avbrottsersättning.
+Men inte det här:
 • Merkostnader för hyrbil som är dyrare än en
 hyrbil av samma eller storleksmässigt likvärdig
 bil som din egen, eller för att du inte följer våra
@@ -1500,13 +1579,14 @@ Begränsning
 För Privat vård, Vårdgaranti och Annan behandling gäller försäkringen bara förare och
 passagerare som är mellan 16 och 64 år gamla.
 Vad försäkringen gäller för
-Det här Men inte det här
+Det här:
 Olycksfall som drabbar dig till följd av trafik med
 försäkrat fordon.
 Olycksfall, det vill säga kroppsskada som drabbat dig
 ofrivilligt genom plötslig yttre händelse, ett utifrån
 kommande våld mot kroppen till följd av trafik med
 försäkrat fordon.
+Men inte det här:
 Försämring av hälsotillståndet om denna försämring
 enligt medicinsk erfarenhet sannolikt skulle ha
 inträtt även om olycksfallet inte inträffat.
@@ -1516,7 +1596,7 @@ Medicinsk invaliditet
 Högsta ersättningsbelopp
 Högsta ersättningsbelopp för medicinsk invaliditet är 600 000 kronor /person.
 Vad du får ersättning för
-Det här Men inte det här
+Det här:
 Medicinsk invaliditet
 Medicinsk invaliditet är den fysiska eller psykiska
 funktionsnedsättning, som fastställs oberoende av
@@ -1524,6 +1604,7 @@ ditt yrke, arbetsförhållanden eller fritidsintressen.
 Som medicinsk invaliditet räknas även framträdande
 ärr, bestående värk eller förlust av inre organ och
 sinnesfunktion.
+Men inte det här:
 Förlust av arbetsförmåga (ekonomisk invaliditet).
 Hur invaliditetsgraden bestäms
 Den medicinska invaliditeten fastställs med ledning av ett medicinskt tabellverk som är
@@ -1554,11 +1635,12 @@ ersättningsmoment.
 Ansvarstid
 Ansvarstiden för Privat sjukvård är 2 år räknat från tidpunkten för trafikolyckan.
 Vad du får ersättning för
-Det här Men inte det här
+Det här:
 Kostnader och tjänster till följd av olycksfallsskada
 som inträffat till följd av trafik med försäkrat fordon.
 För att få tillgång till privat vård och Trygg-Hansas
 Vårdplanering krävs utredning och remiss från läkare.
+Men inte det här:
 • behandling som inte avser förväntat normalförlopp efter en olycksfallsskada till följd av trafik
 med försäkrat fordon
 • behandling av tänder
@@ -1648,11 +1730,12 @@ I Bilförsäkring stor ingår tilläggen C.1 Hyrbil, C.2 Självriskrabatt 3 000 
 och ersättning för medicinsk invaliditet efter trafikolycka.
 Självriskrabatt 50 procent
 Vad du får ersättning för
-Det här Men inte det här
+Det här:
 Självrisken reduceras med 50 procent vid skador
 som ersätts av trafikförsäkringen eller av Brand-,
 Glasrutor-, Stöld och inbrott-, Motor och elektronik,
 Drulleförsäkringen samt Bärgningsförsäkringen.
+Men inte det här:
 Extra självrisk som gäller
 • Om föraren är under 24 år.
 • Om föraren kört utan gällande körkort, har kört
@@ -1695,9 +1778,10 @@ Vad försäkringen gäller för
 • Kunders egendom som omhändertagits av dig.
 • Arbetstagarens egendom.
 Vad du får ersättning för
-Det här Men inte det här
+Det här:
 Skada på egendom som orsakas av plötslig och
 oförutsedd händelse.
+Men inte det här:
 • Skada på grund av:
 - Tillgrepp, rån eller försök till sådant brott, som
 utförts av någon som tillhör ditt hushåll eller den
@@ -1733,7 +1817,350 @@ Självrisk
 Självrisken är 20 % av prisbasbeloppet.
 Vid stöld av hela fordonet, om fordonet var utrustat med spårsändare, är självrisken vid
 skada enligt detta moment 5 % av prisbasbeloppet."""
+StalledVehicleTerms = """D.1 Avställning
+Vad du får ersättning för
+Det här:
+Skada som kan ersättas via
+• brand
+• glasrutor
+• stöld och inbrott
+• motor och elektronik
+• drulle
+• rättsskydd
+Om fordonet var helförsäkrat vid avställningen
+ersätts även skada på grund av
+• uppsåtlig skadegörelse av tredje man
+• annan olyckshändelse utanför fordonet
+Valfria tilläggsförsäkringar
+• Självriskrabatt 3000
+Begränsad till att endast gälla vid uppsåtlig skadegörelse och godkänd parkeringsskada.
+• Självriskrabatt 50 % i Bilförsäkring stor
+Men inte det här:
+Skada på grund av trafikolycka.
+Skada som uppkommer när fordonet framförs i
+trafik.
+När försäkringen gäller
+När fordonet är avställningsförsäkrat och registrerat som avställt i Vägtrafikregistret.
+Var försäkringen gäller
+Avställningsförsäkringen gäller endast i Sverige.
+Vad försäkringen omfattar
+Försäkringens omfattning framgår av ditt försäkringsbrev."""
+VeteranCar = """Vad försäkringen gäller för
+Försäkringen gäller för:
+• personbil
+• lätt lastbil
+om fordonet är 30 år och äldre, och körs högst 500 mil per år.
+Högsta ersättningsbelopp
+Vid brand, glasrutor, stöld och inbrott och vagnskada är ersättningsbeloppet högst
+100 000 kr om inte annat belopp avtalats. Det högre försäkringsbeloppet framgår av ditt
+försäkringsbrev."""
+SpecialTheftProtectionAlarm = """D.3 Särskilt stöldskydd – larm
+Aktsamhetskrav/Säkerhetsföreskrift
+Fordonet ska utöver ordinarie stöldskydd vara försett med ett av oss godkänt larm som
+också är satt i funktion.
+Om aktsamhetskraven/säkerhetsföreskrifter inte följs
+Ersättningen minskas, normalt med 25%. För näringsidkare kan ersättningen minskas eller
+helt utebli. Regler om nedsättning av ersättning finns i avsnitt G.4 Begränsningar av vårt
+ansvar.
+
+"""
+SpecialTheftProtectionElectronicAlarm = """Särskilt stöldskydd – elektroniskt stöldskydd
+Aktsamhetskrav/Säkerhetsföreskrift
+Fordonet ska utöver ordinarie stöldskydd vara försett med ett av oss godkänt elektroniskt
+stöldskydd (startspärr) som också är satt i funktion. Om aktsamhetskraven/säkerhetsföreskrifter inte följs
+Ersättningen minskas, normalt med 25%. För näringsidkare kan ersättningen minskas eller
+helt utebli. Regler om nedsättning av ersättning finns i avsnitt G.4 Begränsningar av vårt
+ansvar."""
+SpecialTheftProtectionTracker = """5 Särskilt stöldskydd – spårsändarutrustning
+Aktsamhetskrav/säkerhetsföreskrift
+Fordonet ska utöver det ordinarie stöldskyddet vara försett med en av oss godkänd spårsändarutrustning som också är satt i funktion.
+Om aktsamhetskraven/säkerhetsföreskrifter inte följs
+Ersättningen minskas, normalt med 25 %. För näringsidkare kan ersättningen minskas eller helt
+utebli. Regler om nedsättning av ersättning finns i avsnitt G.4 Begränsningar av vårt ansvar."""''
+CompensationAndValuationGeneralTerms = """Vad vi ersätter
+Du får ersättning för direkta ekonomiska förluster. Detta medför att ålder och slitage
+påverkar ersättningen.
+Vad som inte ersätts
+• Slitage och normal förbrukning.
+• Kostnad för förbättring eller förändring av fordonet i samband med reparation.
+• Merkostnad till följd av att du inte följt våra anvisningar om inköpsställe.
+• Kostnad för lackering som inte motsvarar den som fordonet har i det seriemässiga
+utförandet.
+• Eventuell värdeminskning efter reparation av skada.
+• Merkostnad på grund av:
+– reparation på övertid
+– frakt av reservdelar på annat sätt än med sedvanligt transportmedel, såvida inte vi i förväg lämnat särskilt godkännande.
+• Normalt slitage när fordonet använts vid stöld eller tillgrepp.
+• Förlust eller olägenhet på grund av att fordonet inte kunnat användas, såvida vi inte särskilt åtagit oss det i försäkringsavtalet.
+• Mervärdesskatt, när du eller ägaren är redovisningsskyldig för sådan, för den del du eller
+ägaren kan göra avdrag för.
+• Kostnad för telefonsamtal och porto i skadereglering.
+Som direkt ekonomisk förlust betraktas inte
+• affektionsvärde som gått förlorat
+• förlorad arbetsförtjänst i samband med egendomsskada
+• besvär och olägenheter som kan uppstå, till exempel att du måste använda kollektiva
+trafkmedel istället för det egna fordonet
+• värdet av eget arbete nedlagt efter skadan om inte annat avtalats
+• värdet av eget arbete som du nedlagt på ditt eget fordon, till exempel egenhändigt
+utförda reparationer.
+Hur vi ersätter
+Vi avgör på vilket sätt du ska få ersättning:
+• reparation
+• kontant ersättning
+• återanskaffning, det vill säga inköp av likadan eller likvärdig egendom.
+Vid återanskaffning eller reparation avgör vi också var inköp respektive reparation ska göras. Vi
+avgör även vilken reparationsmetod som ska tillämpas. Reparationen ska vara fackmannamässigt
+utförd och till skälig kostnad. Vid bilhyra och bärgning avgör vi vilken leverantör som ska anlitas.
+Viktigt
+Vid reparation har vi rätt att företräda dig som ombud hos den som utför reparationen,
+men det är du som är beställare hos verkstaden. Detta för att konsumenttjänstlagens
+bestämmelser avseende bland annat reklamation ska gälla för dig. Det är alltså upp till dig att
+godkänna eller reklamera utfört arbete.
+Du ska alltid kontakta oss innan reparation, bärgning, återanskaffning och bilhyra. Om så
+inte sker begränsas vår ersättningsskyldighet till vad det skulle ha kostat om du anlitat vår
+avtalade leverantör.
+Äganderätten till ersatt egendom
+Vi övertar äganderätten till ersatt egendom om inget annat avtalats.
+Bärgning, hämtning och sanering
+Om skada är ersättningsbar, betalar vi också nödvändig bärgning till närmaste verkstad som
+kan reparera. Vi betalar de skäliga bärgnings- och transportkostnader som tillsammans med
+fordonsskadan överstiger den självrisk som gäller för den aktuella skadehändelsen.
+Vid skada utomlands betalar vi även transport till närmaste verkstad i Sverige som kan
+reparera, om vi anser att sådan transport är nödvändig. Efter stöld eller tillgrepp betalar vi
+dina skäliga kostnader för att hämta fordonet. Finns särskilda skäl kan vi hämta fordonet.
+Vi avgör om transport till fordonets hemort eller till annan ort ska betalas.
+För företagsägd personbil och lätt lastbil ersätts även saneringskostnader upp till 1/2 prisbasbelopp vid ersättningsbar uppsåtlig skadegörelse, brand- eller vagnskada. Ersättning för
+saneringskostnad lämnas inte då annan enligt lag eller avtal är skyldig att ersätta kostnaden för
+saneringen.
+Ersättning vid stöld eller förlust av bilnyckel
+Vid förlust eller stöld av tändningsnyckel ersätts en ny nyckel och inkodning av denna samt
+avkodning av den förlorade nyckeln.
+Vi betalar inte merkostnader som uppstår till följd av att en extra huvudnyckel inte har
+återanskaffats eller saknas.
+Lackering, lackbehandling och foliering
+Kostnad för lackering som inte motsvarar den som fordonet har i det seriemässiga
+utförandet ersätts inte. Vi betalar kostnad för din egen varumärkes- eller mönsterskyddade
+firmasymbol och för din egen reklamtext i anslutning till dessa med högst 2 prisbasbelopp.
+Vid ersättningsbar skada ersätts skadad foliering eller lackbehandling. Försäkringen gäller
+endast för foliering eller lackbehandling av de skadade delarna och under förutsättning att
+det finns en gällande garanti på behandlingen/folieringen.
+För foliering tillämpas en avskrivning på 20 procent per år.
+Hur fordonet och utrustningen värderas
+Ersättning grundas på fordonets eller utrustningens värde i allmänna handeln omedelbart
+före skadan, det vill säga marknadsvärdet.
+Vid reparation ska om möjligt skadade delar bytas mot likvärdiga begagnade delar. Samma
+regel gäller för skadad utrustning.
+Nybilsersättning för personbil
+Med nybilsersättning menas att den skadade bilen ersätts med ny bil av samma eller likvärdigt fabrikat och modell. Samtidigt skadad fast monterad utrustning ersätts med ny om den
+ingick i bilens nypris.
+Nybilsersättning lämnas under förutsättning att
+1. bilen är såld ny av svensk generalagent och är i seriemässigt utförande
+2. du ägt bilen oavbrutet sedan den registrerades första gången
+3. skadan skett inom ett år från det att bilen registrerades första gången
+4. bilen körts högst 2 000 mil
+5. skälig reparationskostnad beräknas överstiga 50 procent av bilens marknadsvärde vid
+skadetillfället.
+Om motsvarande bil inte längre finns på nybilsmarknaden, ersätter vi med senast kända
+cirkapris inklusive moms. Om det finns särskilda skäl, har vi rätt att ersätta dig med ett
+belopp som motsvarar vad vi skulle fått betala för att skaffa motsvarande ny bil.
+Leasade fordon
+Ersättning lämnas med högst det bokförda restvärdet. Ersättningen lämnas till ägaren av
+fordonet, det vill säga leasinggivaren."""
+CompensationAndValuationVehicleEquipment = """Avskrivningsregler för viss utrustning till fordonet
+Egendom värderas till vad det kostar att köpa ny likvärdig egendom i sådant skick den hade
+omedelbart före skadetillfället, det vill säga marknadsvärdet. Kan inte marknadsvärdet
+fastställas, exempelvis på grund av att egendomen saknas, tillämpas avdrag för ålder enligt
+schablonavdragen nedan.
+Ljud- och bildutrustning, batterier, fälgar med mera (avskrivning i procent)
+Ålder
+Föremål –1 år 1 år 2 år 3 år 4 år 5 år 6 år 7 år 8 år
+1. Ljud- och bildutrustning 0 10 20 30 40 50 75 75 80
+2. Navigationsutrustning 0 10 20 30 40 50 75 75 80
+3. Bilbatteri 0 25 40 60 80 100 100 100 100
+4. Kapell och cabriolet 0 0 0 15 30 50 60 70 80*
+5. Lättmetallfälgar 0 0 10 20 30 50 50 50 50
+6. Batteri för framdrivning av
+hybrid-, plug-in hybrid samt
+elbil.
+0 0 0 0 25 25 50 50 75
+7. Extraljus/ljusramp 0 10 20 30 40 50 60 70 80
+
+Ålder
+Föremål –1 år 1 år 2 år 3 år 4 år 5 år 6 år 7 år 8 år
+8. Portabel laddningsutrustning 0 25 40 60 80 100 100 100 100
+9. Takbox 0 0 0 10 30 50 50 70 70
+10. Bilbarnstol och babyskydd 0 0 0 20 30 40 50 70 80
+11. Förtält och markis** 0 10 20 30 40 50 75 75 80
+12. Vitvaror** 0 10 20 30 40 50 75 75 80
+13. Värmepanna** 0 0 10 20 30 40 50 60 80"""
+CompensationAndValuationTiresExtraInformation = """Om däckens mönsterdjup är kända
+Sommardäck
+Avskrivning sker med 15 procent per millimeter räknat från däckets ursprungliga mönsterdjup. Vid 2 millimeters mönsterdjup sker avskrivning med 100 procent.
+Vinterdäck inklusive året-runtdäck
+Avskrivning sker med 15 procent per millimeter räknat från däckets ursprungliga mönsterdjup. Vid 3 millimeters mönsterdjup sker avskrivning med 100 procent.
+Om däckens mönsterdjup inte är kända (avskrivning i procent)
+Sommardäck
+Körda mil Sommardäck
+–500 10
+501–1000 20
+1001–1500 30
+1501–2000 40
+2001–2500 50
+2501–3000 60
+3001–* 100
+* eller mer än 5 år gamla
+Vinterdäck inklusive året-runtdäck
+Föremål Antal använda säsonger
+Vinterdäck
+1 2 3 4
+20 40 60 80"""
+InsurancePremium  = """Hur din premie bestäms
+Det är en rad omständigheter som påverkar sannolikheten för att du och ditt fordon ska
+råka ut för skador. Dessa omständigheter bestämmer priset på din försäkring och de viktigaste framgår även på ditt försäkringsbrev.
+Företagsägda fordon i flerfordonsavtal
+Premien för flerfordonsavtal beräknas preliminärt vid försäkringstidens början. Efter
+avstämning av förändringar i fordonsbeståndet under försäkringstiden debiteras slutlig
+premie, vilken således kan bli högre eller lägre än preliminär premie.
+Viktigt
+Om du har lämnat oriktiga eller ofullständiga uppgifter när försäkringen tecknades gäller vad
+som sägs i Reglerna om nedsättning i avsnitt G.4 Begränsningar av vårt ansvar.
+Det är skillnad mellan riskerna för skador i olika delar av landet, till exempel mellan stora städer
+och glesbygd. Därför har den ort där du är bosatt betydelse för premienivån.
+Landet är indelat i premieområden efter de riskförhållanden som råder.
+Premieområdet bestäms av var du är eller borde vara folkbokförd (i regel den fasta
+bostadsadressen).
+Ändras den adress som finns i försäkringsbrevet och som bestämmer premieområdet får
+vi automatiskt uppgift om det från SPAR. Om den adress som SPAR har (din mantalsskrivningsadress) inte stämmer måste du själv anmäla detta till oss.
+Tror du att du kommer att köra längre än du uppgivit, ska du genast anmäla det till oss.
+Annars riskerar du minskad ersättning vid eventuell skada. Reglerna om nedsättning finns i
+avsnitt G.4 Begränsningar av vårt ansvar.
+Har du anmält för lång körsträcka, betalar vi tillbaka den del av premien, som du betalt för
+mycket. Du ska begära återbetalning inom sex månader efter försäkringsårets slut.
+Vi har rätt att begära uppgifter om:
+• antal körda mil
+• vägmätarställning
+• beräknad körsträcka.
+Lämnar du inte begärda uppgifter, har vi rätt att höja din körsträcka.
+Vilket fordon du har
+Fabrikat, typ och årsmodell på ditt fordon påverkar också premien eftersom kostnaderna
+för skador varierar med dessa faktorer.
+Ålder är en annan faktor som i varierande utsträckning påverkar risken för att du ska
+drabbas av skada.
+Trafikbonus för företagsägt fordon
+Trafikbonus
+Av försäkringsbrevet framgår om försäkringen gäller med bonus.
+Det finns 9 olika bonusklasser. För att hamna i bonusklass 8 krävs 10 skadefria år i följd.
+För att hamna i bonusklass 9 krävs 15 skadefria år i följd. Ny försäkring utan tidigare
+bonusrätt placeras i bonusklass 7.
+Förlorad trafikbonus
+Vid varje skada som leder till utbetalning från fordonets trafikförsäkring sänks den bonus
+som gällde vid skadetillfället med 3 klasser från och med nästa försäkringsår. För trafikförsäkring som har 15 eller fler skadefria år sänks bonusen från bonusklass 9 till bonusklass 7
+(endast 2 steg).
+Undantag
+Bonus sänks inte
+• vid utbetalning enbart för skadad ren eller hund
+• om skadan hände när fordonet var stulet eller tillgripet
+• om skadan hände när polisman eller annan behörig person besiktigade fordonet eller
+• om du kan bevisa att någon annan än du själv eller föraren av ditt fordon ensam är
+vållande."""
+insuranceRulesAgreement = """Försäkringstid och ansvarstid
+Försäkringstiden är den tid för vilken försäkringsavtalet träffas. Försäkringstiden framgår av
+försäkringsbrevet. Saknas utredning om när avtalet har träffats, ska det anses ha skett klockan
+00.00 dagen efter den dag då vi tog emot ansökan om försäkring. Försäkring
+gäller till och med försäkringstidens sista dag.
+Om försäkringen ska tecknas genom att du betalar premie eller om försäkringen i annat
+fall är giltig bara om premien betalas innan försäkringstiden börjar, inträder vårt ansvar
+klockan 00.00 dagen efter den dag då premien kommit oss tillhanda. Du anses ha betalt
+premien när du lämnat ett betalningsuppdrag avseende premie till en bank eller någon annan
+liknande betalningsförmedlare.
+Vi ansvarar endast för skada genom händelse som inträffar under försäkringstiden om
+inte annat särskilt anges i försäkringsvillkoren. Om skada uppkommit successivt ansvarar vi
+endast för den del av skadan som uppkommit under försäkringstiden i hos oss.
+Förnyelse av försäkringen
+Vid försäkringstidens utgång förnyas försäkringen automatiskt, om inte annat framgår av
+avtalet eller omständigheterna. Förnyelse sker dock inte vid försäkringstidens utgång om
+• försäkringen har sagts upp att upphöra vid denna tidpunkt, eller
+• du har tecknat en motsvarande försäkring hos ett annat bolag.
+Har du inte meddelat oss att försäkringsbehovet upphört behåller vi den erlagda premien
+för den tid försäkringen efter förnyelsetidpunkten varit gällande.
+Din rätt att säga upp försäkringen
+Vill du säga upp försäkringen till försäkringstidens utgång, får du göra uppsägningen när som
+helst dessförinnan.
+Du får säga upp försäkringen att upphöra före försäkringstidens utgång
+• om vi väsentligen åsidosätter sina skyldigheter enligt gällande lag eller enligt försäkringsavtalet
+• om försäkringsbehovet faller bort eller det inträffar någon annan liknande omständighet
+• om vi har ändrat försäkringsvillkoren under försäkringstiden
+• om försäkringen har förnyats enligt avsnittet Förnyelse av försäkring och du ännu inte
+betalat premie för den nya premieperioden
+• om det föreligger en ny omständighet av väsentlig betydelse för försäkringsförhållandet
+• i samband med skada.
+Uppsägningen får verkan dagen efter den dag då vi tog emot uppsägningen. Försäkringen
+kan också sägas upp med verkan från och med viss dag i framtiden.
+Om du, efter förnyelse enligt avsnittet Förnyelse av försäkring tecknar en motsvarande
+försäkring hos ett annat bolag utan att betala premie för den förnyade försäkringen, anses
+denna uppsagd med omedelbar verkan.
+Vår rätt att säga upp försäkringen
+Vi får säga upp försäkringen till försäkringstidens utgång. Uppsägningen ska göras skriftligt och
+sändas till dig senast 1 månad innan försäkringstiden går ut. Den ska för att få verkan innehålla
+en förfrågan om du vill ha försäkringen förnyad. Begär du att försäkringen ska förnyas, gäller
+uppsägningen bara om det finns särskilda skäl att vägra försäkring med hänsyn till risken för
+framtida försäkringsfall, den befarade skadans omfattning, den avsedda försäkringens art eller
+någon annan omständighet.
+Vi får säga upp försäkringen att upphöra före försäkringstidens utgång, bara om du eller
+de försäkringen gäller för, grovt har åsidosatt sina förpliktelser mot oss eller om det annars
+finns synnerliga skäl.
+Uppsägningen ska göras skriftligen och med 14 dagars uppsägningstid, räknat från det
+att vi skickade den. Uppsägningen ska ske utan oskäligt dröjsmål från det att vi fick kännedom om det förhållande som den grundas på.
+Tvist om rätten att behålla en försäkring
+Har vi vägrat att förnya försäkringen ska talan väckas inom 6 månader från det att vi avsänt
+meddelande om sitt beslut, uppgift om skälen för detta och upplysning om vad du ska göra
+för att få beslutet prövat. Väcks inte talan inom denna tid är rätten till att föra talan förlorad.
+Ändring av försäkringsvillkoren
+Vill vi ändra försäkringen i samband med en förnyelse ska bolaget skriftligen ange ändringen
+senast i samband med kravet på premie för den förnyade försäkringen. Den förnyade försäkringen gäller då för den tid och på de villkor som vi angivit.
+På begäran från oss kan försäkringsvillkoren ändras under försäkringstiden om det finns
+synnerliga skäl för ändringen. För en sådan ändring gäller det som sägs om uppsägning i
+avsnittet Vår rätt att säga upp försäkringen."""
+insuranceRulesPremium = """När ska premien betalas
+Första premien för försäkringen ska betalas senast 14 dagar efter den dag då vi avsänt krav på
+premie till dig. Detta gäller inte om försäkringen ska tecknas genom att du betalar premien
+eller om försäkringen annars är giltig bara under förutsättning att premien betalas innan försäkringstiden börjar.
+Premien för en senare premieperiod ska betalas senast 1 månad från den dag då
+vi avsände krav på premien till dig. Om premieperioden är högst 1 månad, ska premien
+betalas på periodens första dag.
+Uppsägning på grund av dröjsmål med premien
+Betalas inte premien i rätt tid, får vi säga upp försäkringen, om inte dröjsmålet är av ringa
+betydelse. Uppsägningen ska sändas till dig.
+Uppsägningen får verkan 14 dagar efter den dag då den avsändes, om inte premien betalas inom denna frist. Uppsägningen ska innehålla en uppgift om detta. Saknas denna uppgift,
+får uppsägningen ingen verkan. Gör du sannolikt att uppsägningen har försenats eller inte
+kommit fram på grund av omständigheter som du inte har kunnat råda över, får uppsägningen verkan tidigast en vecka efter den dag då den kom fram. En uppsägning på grund av dröjsmål med premien får verkan senast 3 månader efter den dag då vi avsände den.
+Om du inte har kunnat betala premien i rätt tid på grund av svår sjukdom, frihetsberövande, utebliven pension eller utebliven lön från din huvudsakliga anställning eller liknande
+hinder, får uppsägningen verkan tidigast 1 vecka efter det att hindret fallit bort och senast 3
+månader efter fristens utgång.
+Premiebetalning sedan försäkring upphört
+Om du betalar premien efter det att försäkringen upphört enligt avsnittet Uppsägning på
+grund av dröjsmål med premien, anses detta som en begäran om en ny försäkring på samma
+villkor från och med dagen efter då premien betalades. Vill vi inte meddela försäkring enligt
+din begäran, ska en underrättelse om detta sändas till dig inom 14 dagar från den dag då
+premien betalades. Annars anses en ny försäkring ha tecknats i enlighet med din begäran.
+Tilläggspremie
+Höjs den avtalade premien under försäkringstiden, ska tilläggspremien betalas senast 14
+dagar från den dag då vi avsände ett krav på tilläggspremien till dig.
+Om en tilläggspremie inte betalas i rätt tid, får vi räkna om försäkringstiden för den ändrade försäkringen med hänsyn till den premie som har betalats. En sådan ändring får verkan
+tidigast 14 dagar efter det att en underrättelse om omräkningen har skickats till dig.
+Betalning genom betalningsförmedlare
+Du anses ha betalat premien när du lämnat ett betalningsuppdrag avseende premien till
+bank eller någon annan liknande betalningsförmedlare.
+Återbetalning av premie
+Upphör försäkringen i förtid har vi bara rätt till den premie som skulle ha betalats om avtal
+hade slutits för den tid under vilket bolaget har varit ansvarigt. Har högre premie betalats, ska
+vi betala tillbaka det överskjutande beloppet. Är försäkringsavtalet ogiltigt enlig 4 kap. 2§ första
+stycket försäkringsavtalslagen (2005:104), får vi ändå behålla betald premie för förfluten tid.
+Administrativa avgifter
+Vi tar ut en avgift för att skicka pappersfaktura eller om inte premien betalas i rätt tid.
+Särskild bestämmelse för trafik-, halv- och helförsäkringspremie
+Vi har rätt att till Trafikförsäkringsföreningen överlåta fordran avseende obetald premie för
+trafikförsäkring och halv- och helförsäkring"""
 
 
-
-
+# come up with the optimal english chapter title so GPT can identify when to fetch this chapter text and answer a certain question
