@@ -19,7 +19,7 @@ chapterList = """"
     Legal Protection Coverage for Motor Vehicles
     Vehicle Damage Coverage and Exclusions, Collisions
     Rental Car Coverage and Compensation Guidelines
-    Deductible Provisions for Collisions, Vandalism, Parking, and Towing. Deductible reduction 3000 SEK"
+    Deductible Provisions for Collisions, Vandalism, Parking, and Towing. Deductible reduction 3000 SEK
     Private care and compensation for medical disability after a traffic accident
     Enhanced Protection for Electric and Plug-in Hybrid Vehicles
     Comprehensive Vehicle Insurance 'Big': Coverage, Exclusions, and Additional Benefits
@@ -1845,7 +1845,7 @@ Var försäkringen gäller
 Avställningsförsäkringen gäller endast i Sverige.
 Vad försäkringen omfattar
 Försäkringens omfattning framgår av ditt försäkringsbrev."""
-VeteranCar = """Vad försäkringen gäller för
+veteranCar = """Vad försäkringen gäller för
 Försäkringen gäller för:
 • personbil
 • lätt lastbil
@@ -1854,7 +1854,7 @@ Högsta ersättningsbelopp
 Vid brand, glasrutor, stöld och inbrott och vagnskada är ersättningsbeloppet högst
 100 000 kr om inte annat belopp avtalats. Det högre försäkringsbeloppet framgår av ditt
 försäkringsbrev."""
-SpecialTheftProtectionAlarm = """D.3 Särskilt stöldskydd – larm
+specialTheftProtectionAlarm = """D.3 Särskilt stöldskydd – larm
 Aktsamhetskrav/Säkerhetsföreskrift
 Fordonet ska utöver ordinarie stöldskydd vara försett med ett av oss godkänt larm som
 också är satt i funktion.

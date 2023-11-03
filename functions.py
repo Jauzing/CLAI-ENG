@@ -10,10 +10,14 @@ megaDebug = False  # Set to True to enable extended debugging
 
 ### VARIABLES ###
 
-temprating = 0.7  # Set the temperature rating for the OpenAI API
+temprating = 0.5  # Set the temperature rating for the OpenAI API
 model = "gpt-4"  # Set the model for the OpenAI API
 
-
+# Function to sanitize chapter titles
+def sanitize_chapter_title(chapter_title):
+    # Remove any unwanted characters, such as quotes or extra spaces
+    sanitized_title = chapter_title.replace('"', '').strip()
+    return sanitized_title
 
 def translate_text(text, target_lang='sv'):
     try:
@@ -49,37 +53,63 @@ def findCorrectChapter(): # Function to find the correct chapter
 
     debug_print("Setting OpenAI API key...")
 
-    userQuestion = input("\n Vad är din fråga? \n -> ") # Ask the user for their question
+    userQuestion = input("\n Vad kan jag hjälpa dig med?  \n \n  -> ") # Ask the user for their question
+    debug_print(f"User question before translation: \n \n  {userQuestion}")
+
+    userQuestion = translate_text(userQuestion, target_lang='en')# Translate the question to English
+    debug_print(f"User question after translation: \n \n {userQuestion}")
 
     messages = [ # Create a list of messages to send to the OpenAI API
         {"role": "system",
-         "content": "Du är en hjälpsam assistent som arbetar på ett försäkringsbolag. "
-                    " Här är kapitel från företagets villkor för företagsfordon:"
-            """" Trafikförsäkring 
-                Gemensamma bestämmelser
+         # Below system message fetches the titles from termsDataBase.py and sends them to the OpenAI API
+         "content": "You are a helpful assistant working at an insurance company called Trygg-Hansa. "
+                    " Here are chapters from the companys public terms & agreements for commercially owned vehicles."
+            """"Traffic Insurance Conditions and Deductible Provisions 
+                General Provisions for Vehicle Insurance Coverage
                 Fire Damage Insurance for Vehicles
-                Glasrutor
-                Stöld och inbrott 
-                Motor och elektronik för personbil, lätt lastbil och husbil 
-                Motor och elektronik för husvagn
-                Drulle
-                Ansvar för husbil och husvagn
-                Reseavbrott för husbil och husvagn
-                Krishjälp
-                Bärgning
-                Rättsskydd för fordonet
-                Vagnskada
-                Hyrbil 
-                Självriskrabatt 3 000 kr 
-                Privat vård och ersättning för medicinsk invaliditet efter trafikolycka
-                Extra skydd för elbil och laddhybrid
-                Bilförsäkring stor
-                Egendom i bil 
+                Glass Breakage Coverage for Vehicle Windows
+                Theft and Burglary Protection for Vehicles
+                Motor and Electronics Insurance for Personal Vehicles, Light Trucks, and Motorhomes
+                Coverage for Internal Equipment and Systems in Privately and Commercially Owned Caravans
+                All-Risk 'Clumsy' Coverage for Personal and Light Commercial Vehicles
+                Liability for mobile home and caravan
+                Interrupted Journey Coverage for Motorhomes and Caravans
+                Crisis Assistance Coverage Provisions
+                Towing and Transportation Coverage Details
+                Legal Protection Coverage for Motor Vehicles
+                Vehicle Damage Coverage and Exclusions, Collisions
+                Rental Car Coverage and Compensation Guidelines
+                Deductible Provisions for Collisions, Vandalism, Parking, and Towing. Deductible reduction 3000 SEK"
+                Private care and compensation for medical disability after a traffic accident
+                Enhanced Protection for Electric and Plug-in Hybrid Vehicles
+                Comprehensive Vehicle Insurance 'Big': Coverage, Exclusions, and Additional Benefits
+                Property in Vehicle: Coverage, Exclusions, and Deductibles
+                Vehicle Downtime Coverage: What's Included and Exclusions
+                Veteran Car
+                Special Theft Protection: Alarm System Requirements
+                Special Theft Protection: Compliance with Tracking Equipment Requirements
+                Special Theft Protection: Tracking Device Requirements and Consequences for Non-Compliance
+                Vehicle Insurance Compensation Guidelines and Exclusions
+                Depreciation Rates for Specific Vehicle Equipment and Accessories
+                Tire Depreciation Rules and Tread Depth Criteria
+                Factors Influencing Your Vehicle Insurance Premium
+                Insurance Terms - Agreement, and Cancellation
+                Payment Terms and Consequences for Delayed Insurance Premiums
+                Veteran Car
+                Special Theft Protection: Alarm System Requirements
+                Special Theft Protection: Compliance with Tracking Equipment Requirements
+                Special Theft Protection: Tracking Device Requirements and Consequences for Non-Compliance
+                Vehicle Insurance Compensation Guidelines and Exclusions
+                Depreciation Rates for Specific Vehicle Equipment and Accessories
+                Tire Depreciation Rules and Tread Depth Criteria
+                Factors Influencing Your Vehicle Insurance Premium
+                Insurance Terms - Agreement, and Cancellation
+                Payment Terms and Consequences for Delayed Insurance Premiums
                 """},
 
         {"role": "user", # Create a user message with the user's question
-         "content": f"Baserat på användarens fråga, hitta rätt kapitel i villkoren där svaret finns. Användaren kan ibland stava fel, använda slang eller skriva på ett annat sätt än exakt vad som står i villkoret. Fundera på om det finns några synonymer eller andra sätt att uttrycka sig på som användaren kan ha använt."
-         f"Svara endast med namnet på kapitlet. Om det kan finnas flera kapitel som innehåller svaret, svara med samtliga. Användarens fråga: {userQuestion}."},
+         "content": f"Baserat på användarens fråga, hitta rätt kapitel i villkoren där svaret finns. Om du är osäker, hämta 3-4 kapitel och försök att hitta svaret där."
+         f"Svara endast med namnet på kapitlet. Om det kan finnas flera kapitel som innehåller svaret, svara med samtliga, separerade med '\n'. Användarens fråga: {userQuestion}."},
     ]
 
     debug_print("Anropar OpenAI API för att hitta rätt kapitel... \n") # Debugging: Indicate that the OpenAI API is about to be called
@@ -97,7 +127,7 @@ def storeTermsAsVariable():
 
     debug_print("Laddar in alla kapitel i villkoret som variabler... \n")
 
-    chapter_terms = { # Create a dictionary with the chapters and their variable names that store the terms
+    chapter_terms = { # Create a dictionary with the chapters from termsDataBase.py and their variable names that store the terms. Variable names are at the bottom of termsDataBase.py
         "Traffic Insurance Conditions and Deductible Provisions": trafficInsuranceTerms,
         "General Provisions for Vehicle Insurance Coverage": commonTerms,
         "Fire Damage Insurance for Vehicles": fireTerms,
@@ -106,31 +136,52 @@ def storeTermsAsVariable():
         "Motor and Electronics Insurance for Personal Vehicles, Light Trucks, and Motorhomes": motorAndElectronicsTerms,
         "Coverage for Internal Equipment and Systems in Privately and Commercially Owned Caravans": motorAndElectronicsTerms,
         "All-Risk 'Clumsy' Coverage for Personal and Light Commercial Vehicles": drulleTerms,
-        "Ansvar för husbil och husvagn": liabilityTrollyHousecarTerms,
-        "Reseavbrott för husbil och husvagn": travelBreakTerms,
-        "Krishjälp": crisisHelpTerms,
-        "Bärgning": towingTerms,
-        "Rättsskydd för fordonet": legalProtectionTerms,
-        "Vagnskada": vehicleDamageTerms,
-        "Hyrbil": rentalCarTerms,
-        "Självriskrabatt 3 000 kr": deductibleDiscountTerms,
-        "Privat vård och ersättning för medicinsk invaliditet efter trafikolycka": privateCareTerms,
-        "Extra skydd för elbil och laddhybrid": extraProtectionElectricAndHybridTerms,
-        "Bilförsäkring stor": carInsuranceLargeTerms,
-        "Egendom i bil": propertyInCarTerms,
+        "Liability for mobile home and caravan": liabilityTrollyHousecarTerms,
+        "Interrupted Journey Coverage for Motorhomes and Caravans": travelBreakTerms,
+        "Crisis Assistance Coverage Provisions": crisisHelpTerms,
+        "Towing and Transportation Coverage Details": towingTerms,
+        "Legal Protection Coverage for Motor Vehicles": legalProtectionTerms,
+        "Vehicle Damage Coverage and Exclusions, Collisions": vehicleDamageTerms,
+        "Rental Car Coverage and Compensation Guidelines": rentalCarTerms,
+        "Deductible Provisions for Collisions, Vandalism, Parking, and Towing. Deductible reduction 3000 SEK": deductibleDiscountTerms,
+        "Private care and compensation for medical disability after a traffic accident": privateCareTerms,
+        "Enhanced Protection for Electric and Plug-in Hybrid Vehicles": extraProtectionElectricAndHybridTerms,
+        "Comprehensive Vehicle Insurance 'Big': Coverage, Exclusions, and Additional Benefits": carInsuranceLargeTerms,
+        "Property in Vehicle: Coverage, Exclusions, and Deductibles": propertyInCarTerms,
+        "Vehicle Downtime Coverage: What's Included and Exclusions": StalledVehicleTerms,
+        "Veteran Car": veteranCar,
+        "Special Theft Protection: Alarm System Requirements": specialTheftProtectionAlarm,
+        "Special Theft Protection: Compliance with Tracking Equipment Requirements": SpecialTheftProtectionElectronicAlarm,
+        "Special Theft Protection: Tracking Device Requirements and Consequences for Non-Compliance": SpecialTheftProtectionTracker,
+        "Vehicle Insurance Compensation Guidelines and Exclusions": CompensationAndValuationGeneralTerms,
+        "Depreciation Rates for Specific Vehicle Equipment and Accessories": CompensationAndValuationVehicleEquipment,
+        "Tire Depreciation Rules and Tread Depth Criteria": CompensationAndValuationTiresExtraInformation,
+        "Factors Influencing Your Vehicle Insurance Premium": InsurancePremium,
+        "Insurance Terms - Agreement, and Cancellation": insuranceRulesAgreement,
+        "Payment Terms and Consequences for Delayed Insurance Premiums": insuranceRulesPremium
+
     }
+
+    if debug:
+        # Print out the dictionary keys for debugging
+        print("Dictionary keys:")
+        for key in chapter_terms.keys():
+            print(f"- {key}")
+
 
     # Check if the chosen chapter exists in the dictionary
     global selected_chapter_terms # Make the variable global so that it can be used outside the function
     selected_chapter_terms = [] # Create an empty list to store the terms to enable multiple chapter answers
 
     for chapter in chosenChapter.split('\n'): # Split the chosen chapter into a list of chapters
-        if chapter in chapter_terms: # Check if the chapter exists in the dictionary
-            selected_chapter_terms.append(chapter_terms[chapter]) # If it does, append the terms to the list
-            mega_debug_print(f"Valda kapitel {chapter}") # Debugging: Print the chosen chapter
-        else: # If the chapter doesn't exist in the dictionary
-            print(f"Kapitlet {chapter} finns inte") # Print that the chapter doesn't exist
+        sanitized_chapter = sanitize_chapter_title(chapter) # Sanitize the chapter title and remove any unwanted characters
+        print(f"Hämtat kapitlet om {sanitized_chapter}")  # For debugging
 
+        if sanitized_chapter in chapter_terms:
+            selected_chapter_terms.append(chapter_terms[sanitized_chapter])
+            debug_print(f"Selected chapter: {sanitized_chapter}")
+        else:
+            print(f"The chapter '{sanitized_chapter}' does not exist in the dictionary")
     mega_debug_print(f"Inladdat villkor (första 50 bokstäverna): {selected_chapter_terms[:100]}...") # Debugging: Print the first 50 characters of the terms
     return selected_chapter_terms # Return the list of terms
 
@@ -183,14 +234,14 @@ def findCorrectAnswer():  # Function to find the correct answer
 # Function to check if the user wants to ask another question
 def goAgane():
     while True:
-        asking = input("Finns det något mer jag kan stå till tjänst med? (Ja/Nej) \n")
+        asking = input("Vill du ställa en till fråga?☺️ \n")
         if "ja" in asking.lower() :
             return True
         elif "nej" in asking.lower() :
             print("Tack för att du använde min robot! 🤟")
             return False
         else:
-            print("Vänligen följ instruktionerna! Svara med 'Ja' eller 'Nej'.")
+            return True
 
 
 def create_table():
@@ -209,7 +260,7 @@ def create_table():
 # Function that takes the question + answer and saves it to excel file
 def saveQA(userQuestion, insuranceAnswer):
     # TODO: Behöver fråga användaren om svaret anses korrekt, innan det sparas till databasen
-    print("\n Sparar fråga och svar till databasen... \n ")
+    debug_print("\n Sparar fråga och svar till databasen... \n ")
 
     # Connect to database
     conn = sqlite3.connect('insuranceQA.db')
@@ -222,7 +273,7 @@ def saveQA(userQuestion, insuranceAnswer):
     conn.commit()
     conn.close()
 
-    print("Sparat!")
+    debug_print("Sparat!")
     return
 
 

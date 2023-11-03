@@ -1,8 +1,13 @@
 from functions import *
+import time
+
 asking = True
 # Create table first (Do this once)
 
 if __name__ == '__main__':
+    print("Välkommen till Davids CL-Assistent! 🤖 \n  \n")
+    time.sleep(2)
+
     create_table()  # Create table if it doesn't exist
     if megaDebug:
         viewDatabaseQ = input("Vill du se databasen? (Ja/Nej) \n")
