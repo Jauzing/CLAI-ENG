@@ -1,6 +1,10 @@
 import openai
 import os
 
+# ToDO 
+# Bygga ett script som låter GPT utvärdera utfallet av CLAI för att se hur träffsäker den är.
+# Detta för att slippa mata den med frågor själv och checka mot facit, är för lat för det.
+
 # Initialize OpenAI API key
 openai.api_key = os.environ['OPENAI_API_KEY']
 # List of questions and their correct answers
