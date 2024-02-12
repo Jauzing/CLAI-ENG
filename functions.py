@@ -11,7 +11,7 @@ megaDebug = False  # Set to True to enable extended debugging
 ### VARIABLES ###
 
 temprating = 0.7  # Set the temperature rating for the OpenAI API
-model = "gpt-4"  # Set the model for the OpenAI API
+model = "gpt-4-0125-preview"  # Set the model for the OpenAI API
 
 
 
@@ -39,7 +39,6 @@ def mega_debug_print(message):
 
 
 ### API KEY SETUP ###
-debug_print("Setting OpenAI API key...")
 openai.api_key = os.environ['OPENAI_API_KEY']  # Set the OpenAI API key as a environment variable in the OS
 
 
@@ -49,44 +48,44 @@ def findCorrectChapter(): # Function to find the correct chapter
 
     debug_print("Setting OpenAI API key...")
 
-    userQuestion = input("\n Vad är din fråga? \n -> ") # Ask the user for their question
+    userQuestion = input("\n ❓ Din fråga: \n -> ") # Ask the user for their question
 
     messages = [ # Create a list of messages to send to the OpenAI API
         {"role": "system",
          "content": "Du är en hjälpsam assistent som arbetar på ett försäkringsbolag. "
                     " Här är kapitel från företagets villkor för företagsfordon:"
-            """" Trafikförsäkring 
-                Gemensamma bestämmelser
+            """" Traffic Insurance Conditions and Deductible Provisions
+                General Provisions for Vehicle Insurance Coverage
                 Fire Damage Insurance for Vehicles
-                Glasrutor
-                Stöld och inbrott 
-                Motor och elektronik för personbil, lätt lastbil och husbil 
-                Motor och elektronik för husvagn
-                Drulle
-                Ansvar för husbil och husvagn
-                Reseavbrott för husbil och husvagn
-                Krishjälp
-                Bärgning
-                Rättsskydd för fordonet
-                Vagnskada
-                Hyrbil 
-                Självriskrabatt 3 000 kr 
-                Privat vård och ersättning för medicinsk invaliditet efter trafikolycka
-                Extra skydd för elbil och laddhybrid
-                Bilförsäkring stor
-                Egendom i bil 
+                Glass Breakage Coverage for Vehicle Windows
+                Theft and Burglary Protection for Vehicles
+                Motor and Electronics Insurance for Personal Vehicles, Light Trucks, and Motorhomes
+                Coverage for Internal Equipment and Systems in Privately and Commercially Owned Caravans
+                All-Risk 'Clumsy' Coverage for Personal and Light Commercial Vehicles
+                Liability for mobile home and caravan
+                Interrupted Journey Coverage for Motorhomes and Caravans
+                Crisis Assistance Coverage Provisions
+                Towing and Transportation Coverage Details
+                Legal Protection Coverage for Motor Vehicles
+                Vehicle Damage Coverage and Exclusions, Collisions
+                Rental Car Coverage and Compensation Guidelines
+                Deductible Provisions for Collisions, Vandalism, Parking, and Towing. Deductible reduction 3000 SEK"
+                Private care and compensation for medical disability after a traffic accident
+                Enhanced Protection for Electric and Plug-in Hybrid Vehicles
+                Comprehensive Vehicle Insurance 'Big': Coverage, Exclusions, and Additional Benefits
+                Property in Vehicle: Coverage, Exclusions, and Deductibles
                 """},
 
         {"role": "user", # Create a user message with the user's question
-         "content": f"Baserat på användarens fråga, hitta rätt kapitel i villkoren där svaret finns. Användaren kan ibland stava fel, använda slang eller skriva på ett annat sätt än exakt vad som står i villkoret. Fundera på om det finns några synonymer eller andra sätt att uttrycka sig på som användaren kan ha använt."
-         f"Svara endast med namnet på kapitlet. Om det kan finnas flera kapitel som innehåller svaret, svara med samtliga. Användarens fråga: {userQuestion}."},
+         "content": f"Hitta rätt kapitel i villkoren där svaret finns. "
+         f"Svara bara med namnen på kapitlen, separerade ' || '. Användarens fråga: {userQuestion}."},
     ]
 
-    debug_print("Anropar OpenAI API för att hitta rätt kapitel... \n") # Debugging: Indicate that the OpenAI API is about to be called
+    debug_print("\n Anropar API... \n") # Debugging: Indicate that the OpenAI API is about to be called
 
 
     response = openai.ChatCompletion.create(
-        model="gpt-4",
+        model=model,
         messages=messages
     )
     chosenChapter = response['choices'][0]['message']['content'] # Store the chapter in a variable
@@ -95,7 +94,7 @@ def findCorrectChapter(): # Function to find the correct chapter
 
 def storeTermsAsVariable():
 
-    debug_print("Laddar in alla kapitel i villkoret som variabler... \n")
+    debug_print(" ⏳ Laddar in alla kapitel i villkoret för Företagsmotor. \n")
 
     chapter_terms = { # Create a dictionary with the chapters and their variable names that store the terms
         "Traffic Insurance Conditions and Deductible Provisions": trafficInsuranceTerms,
@@ -120,11 +119,13 @@ def storeTermsAsVariable():
         "Property in Vehicle: Coverage, Exclusions, and Deductibles": propertyInCarTerms,
     }
 
+    debug_print(" ✅ Färdigt! \n")
+
     # Check if the chosen chapter exists in the dictionary
     global selected_chapter_terms # Make the variable global so that it can be used outside the function
     selected_chapter_terms = [] # Create an empty list to store the terms to enable multiple chapter answers
 
-    for chapter in chosenChapter.split('\n'): # Split the chosen chapter into a list of chapters
+    for chapter in chosenChapter.split(' || '): # Split the chosen chapter into a list of chapters
         if chapter in chapter_terms: # Check if the chapter exists in the dictionary
             selected_chapter_terms.append(chapter_terms[chapter]) # If it does, append the terms to the list
             mega_debug_print(f"Valda kapitel {chapter}") # Debugging: Print the chosen chapter
@@ -137,7 +138,7 @@ def storeTermsAsVariable():
 
 def findCorrectAnswer():  # Function to find the correct answer
     global insuranceAnswer
-    debug_print(" \n Finding correct answer... \n ")  # Debugging: Indicate that the model will analyze and look for correct answer.
+    debug_print(" \n 🔎 Hittar rätt kapitel... \n ")  # Debugging: Indicate that the model will analyze and look for correct answer.
     messages = [  # Create a list of messages to send to the OpenAI API
         {"role": "system",  # Create
          # a system message with instructions how the model should reply.
@@ -148,8 +149,8 @@ def findCorrectAnswer():  # Function to find the correct answer
 
         {"role": "user",  # Create a user message with the user's question
          "content": f"""The user's question: {userQuestion}.
-          First, quote the part of the condition where you found the answer. Two lines below that, you write a friendly but concise answer to the question in Swedish. Use an 🧾 emoji before quoting the terms. Use a 📌 emoji before the answer.
-          Example: 🧾 Villkor: Extra skydd för elbil och laddhybrid Förlängt skydd för motor och elektronik Försäkringen gäller om bilen • är högst 12 år räknat från första registreringsdatumet. \n \n 📌 Svar: 12 år från första reg.datum.
+          First, write the name of the relevant chapter, then quote the part of the terms where you found the answer. Below the term-excerpt, you write a friendly but concise answer to the question in Swedish. Use an 🧾 emoji before quoting the terms. Use a  💡-emoji before the answer.
+          Example: 🧾 Villkor: Extra skydd för elbil och laddhybrid Förlängt skydd för motor och elektronik Försäkringen gäller om bilen • är högst 12 år räknat från första registreringsdatumet. \n  💡 Svar: 12 år från första reg.datum.
          """},
     ]
 
@@ -163,16 +164,13 @@ def findCorrectAnswer():  # Function to find the correct answer
 
     )
 
-    mega_debug_print("\n Hittat svar!")  # Debugging: Indicate that the answer has been found
+    debug_print("\n Hittat ett svar! 👀 \n ")  # Debugging: Indicate that the answer has been found
     insuranceAnswer = response['choices'][0]['message']['content']  # Store the answer in a variable
 
     insuranceAnswer = insuranceAnswer.replace(". ",
                                               ".\n")  # Replace each period and space with a period and a newline character
 
     # print(f"Det genererade svaret är: {insuranceAnswer}")
-
-    mega_debug_print(f" \n Det genererade svaret är: {insuranceAnswer} \n ")  # Debugging: Print the generated answer
-    time.sleep(5)
 
     # Translate
     insuranceAnswer = translate_text(insuranceAnswer, target_lang='sv')
@@ -208,21 +206,30 @@ def create_table():
 
 # Function that takes the question + answer and saves it to excel file
 def saveQA(userQuestion, insuranceAnswer):
-    # TODO: Behöver fråga användaren om svaret anses korrekt, innan det sparas till databasen
-    print("\n Sparar fråga och svar till databasen... \n ")
+    # Ask the user if the answer is considered correct
+    userResponse = input("\n Är svaret korrekt? (ja/nej): ").strip().lower()
 
-    # Connect to database
-    conn = sqlite3.connect('insuranceQA.db')
-    c = conn.cursor()
+    # Only proceed to save if the user confirms
+    if userResponse == "ja":
+        print("\n Sparar fråga och svar till databasen... \n ")
 
-    # Insert values into table
-    c.execute("INSERT INTO insuranceQA VALUES (?, ?)", (userQuestion, insuranceAnswer))
+        # Connect to database
+        conn = sqlite3.connect('insuranceQA.db')
+        c = conn.cursor()
 
-    # Commit changes and close connection
-    conn.commit()
-    conn.close()
+        # Try to insert values into table and handle potential exceptions for robustness
+        try:
+            c.execute("INSERT INTO insuranceQA VALUES (?, ?)", (userQuestion, insuranceAnswer))
+            conn.commit()
+            print("✅ Sparat! \n ")
+        except sqlite3.Error as e:
+            print(f"Det gick inte att spara till databasen: {e}")
+        finally:
+            # Ensure the connection is closed even if an error occurs
+            conn.close()
+    else:
+        print("Sparar inte svaret. \n ")
 
-    print("Sparat!")
     return
 
 
